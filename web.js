@@ -9,7 +9,14 @@ app.get('/', function(request, response) {
   response.send(str);
 });
 
-var port = process.env.PORT || 5000;
+app.get('/play', function(request, response) {
+  buffer = fs.readFileSync('play.html');
+  str = buffer.toString('utf8');
+  response.send(str);
+});
+
+
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
